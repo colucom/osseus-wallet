@@ -1,6 +1,6 @@
 const config = require('../../config.dev')
 const init = require('../../index').init
-const getContract = require('../../lib/web3/contracts').getContract
+const getContract = require('../../lib/contract').getContract
 
 init(config).then(async (web3) => {
   try {
