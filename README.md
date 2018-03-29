@@ -1,6 +1,6 @@
-# Skeleton-wallet
+# Osseus-wallet
 
-Skeleton wallet is a module for the skeleton project, but can be used separately.
+Osseus wallet is a module for the osseus project, but can be used separately.
 
 For server, workds with geth 1.8.3+ as a provider
 

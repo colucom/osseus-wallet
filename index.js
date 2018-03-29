@@ -1,3 +1,3 @@
 module.exports = require('./lib')
 
-module.exports.contracts = require('./lib/contract')
+module.exports.contract = require('./lib/contract')
