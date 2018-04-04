@@ -1,5 +1,8 @@
+global.__base = __dirname + '/'
+
 const init = require('../../index').init
 const config = require('../../config.dev')
+
 
 init(config).then(async web3 => {
   try {
@@ -17,18 +20,18 @@ init(config).then(async web3 => {
     const balance = await web3.eth.getBalance(web3.eth.personal.defaultAccount)
     console.log(`balance: ${balance}`)
 
-    if (networkType === 'ropsten') {
-      const receipt = await web3.eth.sendTransaction({
-        value: 10 ** 17,
-        to: '0x0d4DF041Dbef6fFC0E444a4a213774AdB0c118C2',
-        gasPrice: 10
-      }).on('transactionHash', (transactionHash) => {
-        console.log(`transactionHash: ${transactionHash}`)
-        console.log('The network might be busy, so this call might hang up.')
-      })
-      console.log('receipt:')
-      console.log(receipt)
-    }
+    // if (networkType === 'ropsten') {
+    //   const receipt = await web3.eth.sendTransaction({
+    //     value: 10 ** 17,
+    //     to: '0x0d4DF041Dbef6fFC0E444a4a213774AdB0c118C2',
+    //     gasPrice: 10
+    //   }).on('transactionHash', (transactionHash) => {
+    //     console.log(`transactionHash: ${transactionHash}`)
+    //     console.log('The network might be busy, so this call might hang up.')
+    //   })
+    //   console.log('receipt:')
+    //   console.log(receipt)
+    // }
   } catch (e) {
     console.error(e)
   }

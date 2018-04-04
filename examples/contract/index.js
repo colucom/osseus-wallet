@@ -1,3 +1,5 @@
+global.__base = __dirname + '/'
+
 const config = require('../../config.dev')
 const init = require('../../index').init
 const getContract = require('../../lib/contract').getContract
