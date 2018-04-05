@@ -1,10 +1,14 @@
-global.__base = __dirname + '/'
+const defaultConfig = require('../config.dev')
+const init = require('../index').init
+const getContract = require('../lib/contract').getContract
 
-const config = require('../../config.dev')
-const init = require('../../index').init
-const getContract = require('../../lib/contract').getContract
+config = {
+    account: '0x22D481f977abfB7471d1b1b65465754074A7db5c',
+    addresses: require('./misc/constants/addresses'),
+    abiPath: __dirname + '/misc/constants/abi/'
+}
 
-init(config).then(async (web3) => {
+init({...defaultConfig, ...config}).then(async (web3) => {
   try {
     console.log(`account: ${web3.eth.personal.defaultAccount}`)
     const ColuLocalNetworkContract = getContract('ColuLocalNetwork')
