@@ -1,19 +1,17 @@
-const init = require('../index').init
-const defaultConfig = require('config.dev')
+const OsseusConfig = require('osseus-config')
+const OsseusLogger = require('osseus-logger')
+const OsseusWallet = require('../index')
 
-config = {
-    account: '0x22D481f977abfB7471d1b1b65465754074A7db5c',
-    addresses: require('./misc/constants/addresses'),
-    abiPath: __dirname + '/misc/constants/abi/'
-}
+async function main() {
+  const config = await OsseusConfig.init()
+  // const logger = await OsseusLogger.init(config)
+  const web3 = await OsseusWallet.init(config)
 
-init({...defaultConfig, ...config}).then(async web3 => {
   try {
     console.log('successfully connected to web3')
     console.log(`web3 version: ${web3.version}`)
     console.log(`provider host: ${web3.currentProvider.host}`)
     console.log(`account: ${web3.eth.personal.defaultAccount}`)
-
     const networkType = await web3.eth.net.getNetworkType()
     console.log(`network: ${networkType}`)
 
@@ -35,7 +33,9 @@ init({...defaultConfig, ...config}).then(async web3 => {
       console.log('receipt:')
       console.log(receipt)
     }
-  } catch (e) {
-    console.error(e)
+  } catch (error) {
+    console.error(error)
   }
-})
+}
+
+main()
