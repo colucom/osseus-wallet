@@ -1,4 +1,4 @@
 module.exports = {
   ENV: 'qa',
-  LOG_LEVEL: 'debug'
+  OSSEUS_LOGGER_LOG_LEVEL: 'debug'
 }

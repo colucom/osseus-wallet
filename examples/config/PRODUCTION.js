@@ -1,4 +1,4 @@
 module.exports = {
   ENV: 'production',
-  LOG_LEVEL: 'info'
+  OSSEUS_LOGGER_LOG_LEVEL: 'info'
 }
