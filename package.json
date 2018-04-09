@@ -9,6 +9,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "osseus-config": "git+https://github.com/colucom/osseus-config.git",
+    "osseus-logger": "git+https://github.com/colucom/osseus-logger.git",
     "web3": "^1.0.0-beta.33"
   }
 }

@@ -1,17 +1,16 @@
-const defaultConfig = require('../config.dev')
-const init = require('../index').init
-const getContract = require('../lib/contract').getContract
+const OsseusConfig = require('osseus-config')
+const OsseusLogger = require('osseus-logger')
+const OsseusWallet = require('../index')
 
-config = {
-    account: '0x22D481f977abfB7471d1b1b65465754074A7db5c',
-    addresses: require('./misc/constants/addresses'),
-    abiPath: __dirname + '/misc/constants/abi/'
-}
 
-init({...defaultConfig, ...config}).then(async (web3) => {
+async function main() {
+  const config = await OsseusConfig.init()
+  // const logger = await OsseusLogger.init(config)
+  const web3 = await OsseusWallet.init(config)
+
   try {
     console.log(`account: ${web3.eth.personal.defaultAccount}`)
-    const ColuLocalNetworkContract = getContract('ColuLocalNetwork')
+    const ColuLocalNetworkContract = OsseusWallet.contract.getContract('ColuLocalNetwork')
 
     const name = await ColuLocalNetworkContract.methods.name().call()
     console.log(`contract name: ${name}`)
@@ -28,4 +27,6 @@ init({...defaultConfig, ...config}).then(async (web3) => {
   } catch (error) {
     console.error(error)
   }
-})
+}
+
+main()
