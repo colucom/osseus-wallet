@@ -1,16 +1,17 @@
 const OsseusConfig = require('osseus-config')
-const OsseusLogger = require('osseus-logger')
+// const OsseusLogger = require('osseus-logger')
 const OsseusWallet = require('../index')
-
 
 async function main () {
   const config = await OsseusConfig.init()
   // const logger = await OsseusLogger.init(config)
-  const web3 = await OsseusWallet.init({config})
+  const wallet = await OsseusWallet.init({config})
+  const web3 = wallet.web3
+  const contract = wallet.contract
 
   try {
     console.log(`account: ${web3.eth.personal.defaultAccount}`)
-    const ColuLocalNetworkContract = OsseusWallet.contract.getContract('ColuLocalNetwork')
+    const ColuLocalNetworkContract = contract.getContract('ColuLocalNetwork')
 
     const name = await ColuLocalNetworkContract.methods.name().call()
     console.log(`contract name: ${name}`)

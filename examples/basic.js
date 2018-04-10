@@ -1,12 +1,14 @@
 const OsseusConfig = require('osseus-config')
-const OsseusLogger = require('osseus-logger')
+// const OsseusLogger = require('osseus-logger')
 const OsseusWallet = require('../index')
 
-async function main() {
+async function main () {
   const config = await OsseusConfig.init()
   // const logger = await OsseusLogger.init(config)
-  const web3 = await OsseusWallet.init({config})
-
+  const wallet = await OsseusWallet.init({config})
+  const web3 = wallet.web3
+  console.log(wallet)
+  // console.log(web3.version)
   try {
     console.log('successfully connected to web3')
     console.log(`web3 version: ${web3.version}`)
