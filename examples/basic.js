@@ -5,7 +5,7 @@ const OsseusWallet = require('../index')
 async function main() {
   const config = await OsseusConfig.init()
   // const logger = await OsseusLogger.init(config)
-  const web3 = await OsseusWallet.init(config)
+  const web3 = await OsseusWallet.init({config})
 
   try {
     console.log('successfully connected to web3')
