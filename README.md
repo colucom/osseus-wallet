@@ -16,3 +16,6 @@ export WALLET_PASSWORD=<YOUR PASSWORD>
 ```
 
 Look into examples directory
+
+## License
+Code released under the [MIT License](https://github.com/colucom/osseus-wallet/blob/master/LICENSE).
