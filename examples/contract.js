@@ -29,6 +29,12 @@ async function main () {
     contract.addContract({contractName: ccName, contract: ColuLocalCurrencyContract})
     console.log('new contract have been added to the contracts store')
 
+    // getting and adding with one command if you know the contract name
+    const ColuLocalCurrencyContractSecond = contract.getContract({contractName: 'newName',
+      abiName: 'ColuLocalNetwork', address: tokenAddress})
+    console.log('another new contract have been added to the contracts store')
+
+
     console.log('approving 1 CLN, this call might hang up')
     const receipt = await ColuLocalNetworkContract.methods.approve('0x0d4DF041Dbef6fFC0E444a4a213774AdB0c118C2', 1 ** 18).send({
       from: web3.eth.defaultAccount
