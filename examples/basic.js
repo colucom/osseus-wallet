@@ -28,7 +28,7 @@ async function main () {
         value: 10 ** 17,
         to: '0x0d4DF041Dbef6fFC0E444a4a213774AdB0c118C2',
         gasPrice: 10
-      }).on('transactionHash', (transactionHash) => {
+      }).on('transactionHash', function (transactionHash) {
         console.log(`transactionHash: ${transactionHash}`)
         console.log('The network might be busy, so this call might hang up.')
       })
