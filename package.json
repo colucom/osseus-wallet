@@ -9,7 +9,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "web3": "^1.0.0-beta.37"
+    "web3": "^1.0.0-beta2"
   },
   "devDependencies": {
     "standard": "^11.0.1"
