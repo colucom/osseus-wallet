@@ -12,6 +12,6 @@
     "web3": "^1.0.0-beta2"
   },
   "devDependencies": {
-    "standard": "^11.0.1"
+    "standard": "^17.0.0"
   }
 }
